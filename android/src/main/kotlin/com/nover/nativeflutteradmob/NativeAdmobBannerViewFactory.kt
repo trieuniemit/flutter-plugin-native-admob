@@ -66,10 +66,22 @@ class NativeAdmobBannerView(
 
     // load ad
     val adUnitID = map["adUnitID"] as String
+      val adUnitID = map["adUnitID"] as String
     val builder = AdLoader.Builder(context, adUnitID)
+
     adLoader = builder.forUnifiedNativeAd {
       view.populateNativeAdView(it)
-    }.withAdListener(object: AdListener() {
+    }
+
+    val testDevices = map["testDevices"] as List<String>
+
+    adLoader.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+
+    for(device: String in testDevices) {
+        adLoader.addTestDevice(device)
+    }
+      
+    adLoader.withAdListener(object: AdListener() {
       override fun onAdFailedToLoad(errorCode: Int) {
         println("onAdFailedToLoad errorCode = $errorCode")
       }

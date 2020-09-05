@@ -17,7 +17,7 @@ class NativeAdmobBannerView extends StatefulWidget {
   final String adUnitID;
   final BannerStyle style;
   final bool showMedia;
-
+  final List<String> testDevices;
   /// Content padding in format "left, top, right, bottom"
   final EdgeInsets contentPadding;
 
@@ -29,7 +29,8 @@ class NativeAdmobBannerView extends StatefulWidget {
     this.style = BannerStyle.dark,
     this.showMedia = true,
     this.contentPadding = const EdgeInsets.all(8.0),
-    this.onCreate
+    this.onCreate,
+    this.testDevices
   }) : assert(adUnitID.isNotEmpty),
         super(key: key);
 
@@ -56,6 +57,7 @@ class _NativeAdmobBannerViewState extends State<NativeAdmobBannerView> {
           creationParams: {
             "adUnitID": widget.adUnitID,
             "style": style,
+            "testDevices": widget.testDevices,
             "showMedia": widget.showMedia,
             "contentPadding": contentPadding
           },
