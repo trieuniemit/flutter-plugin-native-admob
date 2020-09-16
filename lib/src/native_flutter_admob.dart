@@ -92,12 +92,28 @@ class NativeAdmob {
 
 class NativeAdController {
 
-  final MethodChannel _channel;
+  MethodChannel _channel;
+  Function onAdFailedToLoad;
 
-  NativeAdController._(int id) : _channel = new MethodChannel("${NativeAdmobBannerView._viewType}_$id");
+  NativeAdController._(int id) {
+    _channel = new MethodChannel("${NativeAdmobBannerView._viewType}_$id");
+    _channel.setMethodCallHandler(this._didReceivedTranscript);
+  }
+
+  Future<void> _didReceivedTranscript(MethodCall call) async {
+    final String utterance = call.arguments;
+    print(call.method);
+    switch(call.method) {
+      case "onAdFailedToLoad":
+        if(onAdFailedToLoad != null) {
+          onAdFailedToLoad();
+        }
+    }
+  }
 
   Future<Null> setStyle(BannerStyle style) async {
     await _channel.invokeMethod("setStyle", {"style": style == BannerStyle.dark ? "dark" : "light"});
     return null;
   }
+
 }

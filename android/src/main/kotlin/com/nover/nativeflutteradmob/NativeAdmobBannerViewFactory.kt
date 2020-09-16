@@ -73,6 +73,7 @@ class NativeAdmobBannerView(
     }.withAdListener(object: AdListener() {
       override fun onAdFailedToLoad(errorCode: Int) {
         println("onAdFailedToLoad errorCode = $errorCode")
+        methodChannel.invokeMethod("onAdFailedToLoad", null)
       }
     }).build()
 

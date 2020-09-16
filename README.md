@@ -107,23 +107,3 @@ return MaterialApp(
 
 To run example project, please follow this link: [Flutter Firebase](https://firebase.google.com/docs/flutter/setup) to integrate you google services
  
-
- 
-# 👍 Contribution
-
-Want to contribute? Great!
-Code Sharing makes the world a better place <3
-
-1. Fork it
-2. Create your feature branch (git checkout -b my-new-feature)
-3. Commit your changes (git commit -m 'Add some feature')
-4. Push to the branch (git push origin my-new-feature)
-5. Create new Pull Request
-
-
-### Support
-----
-
-Help us to continue developing solutions for the community 
-
-<a href="https://www.buymeacoffee.com/6cdltqC" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
