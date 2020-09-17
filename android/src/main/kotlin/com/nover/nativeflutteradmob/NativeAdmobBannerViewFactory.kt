@@ -192,7 +192,7 @@ class NativeAdmobBannerViewHoder @JvmOverloads constructor(
     // Some assets are guaranteed to be in every UnifiedNativeAd.
     adHeadline.text = nativeAd.headline
     adBody.text = nativeAd.body
-    (adView.callToActionView as Button).setText(nativeAd.callToAction)
+    (adView.callToActionView as Button).text = nativeAd.callToAction
 
     // These assets aren't guaranteed to be in every UnifiedNativeAd, so it's important to
     // check before trying to display them.
